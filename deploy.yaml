@@ -19,4 +19,4 @@
     yum: name=postgresql-server state={{ psql_version }}
     
   - name: Start PostgreSQL
-    service: name=postgresql-server state=started enabled=yes
+    service: name=postgresql state=started enabled=yes
