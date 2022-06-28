@@ -1,0 +1,12 @@
+[app]
+vm2 ansible_host=51.250.91.255 ansible_user=centos
+vm3 ansible_host=51.250.5.140 ansible_user=centos
+
+[database]
+127.0.0.1 ansible_connection=local
+
+[web:children]
+database
+
+[web:vars]
+psql_version=latest
