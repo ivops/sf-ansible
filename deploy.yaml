@@ -1,0 +1,22 @@
+---
+- name: Install Docker on app servers
+  hosts: app
+  become: yes
+ 
+  tasks:
+  - name: Install Docker
+    yum: name=docker state=latest
+    
+  - name: Start Docker
+    service: name=docker state=started enabled=yes
+
+- name: Install PostgreSQL on DB server
+  hosts: database
+  become: yes
+ 
+  tasks:
+  - name: Install PostgreSQL
+    yum: name=postgresql-server state={{ psql_version }}
+    
+  - name: Start PostgreSQL
+    service: name=postgresql-server state=started enabled=yes
